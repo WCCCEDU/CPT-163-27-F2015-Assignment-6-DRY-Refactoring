@@ -2,6 +2,11 @@ package howdryiam;
 
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Seth Frosch
+ */
+
 public class HowDRYIAm {
 
   /**
@@ -9,89 +14,74 @@ public class HowDRYIAm {
    */
   public static void main(String[] args) {
 	Scanner keyboard = new Scanner(System.in);
+        
+        //Creating first address instance for address information
+        Address address1 = createAddress(keyboard);
+        
+        //Creating first dimension instance to create box
+        Dimensions dim1 = buildBox(keyboard);
+        
+        //Creating second address instance for address information
+        Address address2 = createAddress(keyboard);
+        
+        //Creating second dimension instance to create box
+        Dimensions dim2 = buildBox(keyboard);
 	
-	// Dimensions Prep
-	double width;
-	double depth;
-	double height;
-	Dimensions dim1;
-	Dimensions dim2;
-	
-	// address Prep
-	String name;
-	String street;
-	String state;
-	String city;
-	int zip;
-	Address address1;
-	Address address2;
-		
-	
-	LabelPrinter label1;
-	LabelPrinter label2;
-	
-	// Preparing First Box
-	
-	println("Constructing Address one");
-	println("Attn:");
-	name = keyboard.next();
-	println("Street:");
-	street = keyboard.next();
-	println("City:");
-	city = keyboard.next();
-	println("State:");
-	state = keyboard.next();
-	println("ZipCode:");
-	zip = keyboard.nextInt();
-	
-	address1 = new Address(city, street, city, state, zip);
-	
-	println("Constructing Box one");
-	println("Height:");
-	height = keyboard.nextDouble();
-	println("Width:");
-	width = keyboard.nextDouble();
-	println("Depth:");
-	depth = keyboard.nextDouble();
-	
-	dim1 = new Dimensions(width, height, depth);
-	
-	label1 = new LabelPrinter(address1, dim1);
-	
-	// Preparing Second Box
-	
-	println("Constructing Address two");
-	println("Attn:");
-	name = keyboard.next();
-	println("Street:");
-	street = keyboard.next();
-	println("City:");
-	city = keyboard.next();
-	println("State:");
-	state = keyboard.next();
-	println("ZipCode:");
-	zip = keyboard.nextInt();
-	
-	address2 = new Address(city, street, city, state, zip);
-	
-	println("Constructing Box two");
-	println("Height:");
-	height = keyboard.nextDouble();
-	println("Width:");
-	width = keyboard.nextDouble();
-	println("Depth:");
-	depth = keyboard.nextDouble();
-	
-	dim2 = new Dimensions(width, height, depth);
-	
-	label2 = new LabelPrinter(address2, dim2);
+        //Creating label instances to hold address and dimension data
+	LabelPrinter label1 = new LabelPrinter(address1, dim1);
+        LabelPrinter label2 = new LabelPrinter(address2, dim2);
 	
 	//Printing Labels
 	label1.printLabel();
 	label2.printLabel();
   }
   
+  /**
+   * Method to accept and store address information
+   * @param createAddress Takes input from Scanner to store in Address instance
+   * @return An instance of the Address class
+   */
+  public static Address createAddress(Scanner keyboard){
+      	println("Constructing Address");
+	println("Name:");
+	String name = keyboard.nextLine();
+	println("Street:");
+	String street = keyboard.nextLine();
+	println("City:");
+	String city = keyboard.nextLine();
+	println("State:");
+	String state = keyboard.next();
+	println("ZipCode:");
+	int zip = keyboard.nextInt();
+        keyboard.nextLine();
+	
+	Address address = new Address(name, street, city, state, zip);
+        return address;
+  }
   
+  /**
+   * Method to accept and store box dimensions
+   * @param buildBox Takes input from Scanner to store in Dimensions instance
+   * @return An instance of the Dimensions class
+   */
+  public static Dimensions buildBox(Scanner keyboard){
+        println("Constructing Box");
+	println("Depth:");
+	double depth = keyboard.nextDouble();
+	println("Width:");
+	double width = keyboard.nextDouble();
+	println("Height:");
+	double height = keyboard.nextDouble();
+        keyboard.nextLine();
+	
+	Dimensions dim = new Dimensions(depth, width, height);
+        return dim;
+  }
+  
+  /**
+   * Method to output string messages
+   * @param println Outputs a string message
+   */
   public static void println(String message){
 	System.out.println(message);
   }

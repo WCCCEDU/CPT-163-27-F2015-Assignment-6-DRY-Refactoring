@@ -8,28 +8,29 @@ package howdryiam;
 /**
  *
  * @author samuraipanzer
+ * @author Seth Frosch
  */
 public class Address {
-  private String attn = "";
+  private String name = "";
   private String street = "";
   private String city = "";
   private String state = "";
   private int zip = 0;
 
-  public Address(String attn, String street, String city, String state, int zip) {
-	this.attn = attn;
+  public Address(String name, String street, String city, String state, int zip) {
+	this.name = name;
 	this.city = city;
 	this.state = state;
 	this.street = street;
 	this.zip = zip;
   }
 
-  public String getAttn() {
-	return attn;
+  public String getName() {
+	return name;
   }
 
-  public void setAttn(String attn) {
-	this.attn = attn;
+  public void setName(String name) {
+	this.name = name;
   }
 
   public String getStreet() {
