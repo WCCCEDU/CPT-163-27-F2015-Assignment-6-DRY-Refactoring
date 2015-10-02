@@ -8,11 +8,12 @@ package howdryiam;
 /**
  *
  * @author samuraipanzer
+ * @author Seth Frosch
  */
 public class Dimensions {
+  private double depth = 0;
   private double width = 0;
   private double height = 0;
-  private double depth = 0;
   private String units = "in";
 
   /**
@@ -22,22 +23,22 @@ public class Dimensions {
    * @param depth
    * @param units 
    */
-  public Dimensions(double width, double height, double depth, String units) {
+  public Dimensions(double depth, double width, double height, String units) {
 	this.depth = depth;
+	this.width = width;
 	this.height = height;
 	this.units = units;
-	this.width = width;
   }
   /**
    * Constructs dimension of a 3d box using default `in` units
+   * @param depth
    * @param width
-   * @param height
-   * @param depth 
+   * @param height 
    */
-  public Dimensions(double width, double height, double depth) {
+  public Dimensions(double depth, double width, double height) {
 	this.depth = depth;
-	this.height = height;
 	this.width = width;
+	this.height = height;
   }
   
   public String widthWithUnits(){

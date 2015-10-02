@@ -8,6 +8,7 @@ package howdryiam;
 /**
  *
  * @author samuraipanzer
+ * @author Seth Frosch
  */
 public class LabelPrinter {
   private Address address = null;
@@ -22,11 +23,11 @@ public class LabelPrinter {
 	String depth = this.dimension.depthWithUnits();
 	String width = this.dimension.widthWithUnits();
 	String height = this.dimension.heightWithUnits();
-	System.out.println("Name: " + this.address.getAttn() +
-					   "Street: " + this.address.getStreet() +
-					   "City: " + this.address.getCity() +
-					   "State: " + this.address.getState() +
-					   "Zip: " + this.address.getZip() +
-					   "Dimensions: " + depth + "x" + width + "x" + height);
+	System.out.println("Name: " + this.address.getName() +
+            " Street: " + this.address.getStreet() +
+            " City: " + this.address.getCity() +
+            " State: " + this.address.getState() +
+            " Zip: " + this.address.getZip() +
+            " Dimensions: " + depth + " x " + width + " x " + height);
   }
 }
