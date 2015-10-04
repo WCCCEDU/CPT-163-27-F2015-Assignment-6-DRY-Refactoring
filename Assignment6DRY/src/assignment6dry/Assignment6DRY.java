@@ -3,8 +3,9 @@ package assignment6dry;
 import java.util.Scanner;
 
 /**
- *
- * @author Samantha
+ * This program lets the user enter address and label sizing information to print
+ * up to 10 labels. 
+ * @author Samantha Shurie
  */
 public class Assignment6DRY {
 
