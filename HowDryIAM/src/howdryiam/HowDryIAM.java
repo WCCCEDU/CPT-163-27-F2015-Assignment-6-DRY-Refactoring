@@ -4,17 +4,14 @@ import java.util.Scanner;
 public class HowDryIAM {
   public static void main(String[] args) {
 	Scanner keyboard = new Scanner(System.in);
-	
-	LabelPrinter label1;
-	LabelPrinter label2;
-	
+		
 	// Preparing First Box
         println("Constructing Address and Box one");
-	label1 = new LabelPrinter(address(keyboard), dimensions(keyboard));
+	LabelPrinter label1 = new LabelPrinter(address(keyboard), dimensions(keyboard));
 	
 	// Preparing Second Box
         println("Constructing Address and Box two");
-	label2 = new LabelPrinter(address(keyboard), dimensions(keyboard));
+	LabelPrinter label2 = new LabelPrinter(address(keyboard), dimensions(keyboard));
 	
 	//Printing Labels
 	label1.printLabel();
