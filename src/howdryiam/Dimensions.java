@@ -23,10 +23,11 @@ public class Dimensions {
    * @param units 
    */
   public Dimensions(double width, double height, double depth, String units) {
-	this.depth = depth;
+ 	this.width = width;       
 	this.height = height;
+	this.depth = depth;        
 	this.units = units;
-	this.width = width;
+
   }
   /**
    * Constructs dimension of a 3d box using default `in` units
@@ -35,9 +36,9 @@ public class Dimensions {
    * @param depth 
    */
   public Dimensions(double width, double height, double depth) {
-	this.depth = depth;
-	this.height = height;
 	this.width = width;
+        this.height = height;
+        this.depth = depth;
   }
   
   public String widthWithUnits(){
