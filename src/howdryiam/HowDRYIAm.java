@@ -4,10 +4,7 @@ import java.util.Scanner;
 
 public class HowDRYIAm {
 
-  /**
-   * @param args the command line arguments
-   */
-  public static void main(String[] args) {
+  public static void main() {
 	Scanner keyboard = new Scanner(System.in);
 	
 	// Dimensions Prep
@@ -95,4 +92,4 @@ public class HowDRYIAm {
   public static void println(String message){
 	System.out.println(message);
   }
-}
+}   
