@@ -23,10 +23,10 @@ public class LabelPrinter {
 	String width = this.dimension.widthWithUnits();
 	String height = this.dimension.heightWithUnits();
 	System.out.println("Name: " + this.address.getAttn() +
-					   "Street: " + this.address.getStreet() +
-					   "City: " + this.address.getCity() +
-					   "State: " + this.address.getState() +
-					   "Zip: " + this.address.getZip() +
-					   "Dimensions: " + depth + "x" + width + "x" + height);
+					   ", Street: " + this.address.getStreet() +
+					   ", City: " + this.address.getCity() +
+					   ", State: " + this.address.getState() +
+					   ", Zip: " + this.address.getZip() +
+					   ", Dimensions: " + depth + " x " + width + " x " + height);
   }
 }
