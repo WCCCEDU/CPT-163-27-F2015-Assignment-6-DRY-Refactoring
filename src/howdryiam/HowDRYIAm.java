@@ -9,89 +9,70 @@ public class HowDRYIAm {
    */
   public static void main(String[] args) {
 	Scanner keyboard = new Scanner(System.in);
-	
-	// Dimensions Prep
-	double width;
-	double depth;
-	double height;
-	Dimensions dim1;
-	Dimensions dim2;
-	
-	// address Prep
-	String name;
-	String street;
-	String state;
-	String city;
-	int zip;
-	Address address1;
-	Address address2;
-		
-	
-	LabelPrinter label1;
-	LabelPrinter label2;
-	
-	// Preparing First Box
-	
-	println("Constructing Address one");
-	println("Attn:");
-	name = keyboard.next();
-	println("Street:");
-	street = keyboard.next();
-	println("City:");
-	city = keyboard.next();
-	println("State:");
-	state = keyboard.next();
-	println("ZipCode:");
-	zip = keyboard.nextInt();
-	
-	address1 = new Address(city, street, city, state, zip);
-	
-	println("Constructing Box one");
-	println("Height:");
-	height = keyboard.nextDouble();
-	println("Width:");
-	width = keyboard.nextDouble();
-	println("Depth:");
-	depth = keyboard.nextDouble();
-	
-	dim1 = new Dimensions(width, height, depth);
-	
-	label1 = new LabelPrinter(address1, dim1);
-	
-	// Preparing Second Box
-	
-	println("Constructing Address two");
-	println("Attn:");
-	name = keyboard.next();
-	println("Street:");
-	street = keyboard.next();
-	println("City:");
-	city = keyboard.next();
-	println("State:");
-	state = keyboard.next();
-	println("ZipCode:");
-	zip = keyboard.nextInt();
-	
-	address2 = new Address(city, street, city, state, zip);
-	
-	println("Constructing Box two");
-	println("Height:");
-	height = keyboard.nextDouble();
-	println("Width:");
-	width = keyboard.nextDouble();
-	println("Depth:");
-	depth = keyboard.nextDouble();
-	
-	dim2 = new Dimensions(width, height, depth);
-	
-	label2 = new LabelPrinter(address2, dim2);
-	
-	//Printing Labels
+		       
+        //Address holds mailing address at each instance
+        //Dimensions holds box dimensions at each instance
+        Address address1 = address(keyboard);
+        Dimensions dim1 = dimension(keyboard);
+        Address address2 = address(keyboard);
+        Dimensions dim2 = dimension(keyboard);
+        
+        //label varaibles hold address and dimension information for each label
+        LabelPrinter label1 = new LabelPrinter(address1, dim1);
+	LabelPrinter label2 = new LabelPrinter(address2, dim2);
+        
+        //Printing Labels
 	label1.printLabel();
 	label2.printLabel();
+    }   
+             
+    /**
+    *  Method accepts and stores address information
+    * @param keyboard 
+    * @return Address 
+    */
+        
+  public static Address address(Scanner keyboard){	
+	println("Constructing Address");
+	println("Attn:");
+	String attn = keyboard.nextLine();
+	println("Street:");
+	String street = keyboard.nextLine();
+	println("City:");
+	String city = keyboard.nextLine();
+	println("State:");
+	String state = keyboard.nextLine();
+	println("ZipCode:");
+	int zip = keyboard.nextInt();
+         keyboard.nextLine();
+        Address address = new Address(attn, street, city, state, zip);
+        return address;
   }
-  
-  
+ 
+  /**
+   * Method accepts and stores dimensions of box
+   * @param keyboard 
+   * @return Dimensions
+   */
+	
+  public static Dimensions dimension(Scanner keyboard){
+ 	println("Constructing Box");
+	println("Height:");
+	double height = keyboard.nextDouble();
+	println("Width:");
+	double width = keyboard.nextDouble();
+	println("Depth:");
+	double depth = keyboard.nextDouble();
+        keyboard.nextLine();
+	
+	Dimensions dim = new Dimensions(width, height, depth);
+        return dim;
+  }
+ 
+  /**
+   * Method outputs string messages
+   * @param message 
+   */
   public static void println(String message){
 	System.out.println(message);
   }
