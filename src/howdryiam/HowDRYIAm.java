@@ -1,3 +1,11 @@
+/*
+ * Gary a. Newsome
+ * CPT 163_27 Java Programming
+ * Westmoreland County Community College
+ * Paul Scarrone
+ * Assignment 6 DRY Refactoring
+ * class: HOWDRYIAM
+ */
 package howdryiam;
 
 import java.util.Scanner;
@@ -5,94 +13,75 @@ import java.util.Scanner;
 public class HowDRYIAm {
 
   /**
+   * @author garyanewsome
+   * @author saumaripanzer
    * @param args the command line arguments
    */
   public static void main(String[] args) {
 	Scanner keyboard = new Scanner(System.in);
+			
+	Address address1 = buildLabel(keyboard);
+	Dimensions dim1 = boxSize(keyboard);
+	LabelPrinter label1 = new LabelPrinter(address1, dim1);
 	
-	// Dimensions Prep
-	double width;
-	double depth;
-	double height;
-	Dimensions dim1;
-	Dimensions dim2;
-	
-	// address Prep
-	String name;
-	String street;
-	String state;
-	String city;
-	int zip;
-	Address address1;
-	Address address2;
-		
-	
-	LabelPrinter label1;
-	LabelPrinter label2;
-	
-	// Preparing First Box
-	
-	println("Constructing Address one");
-	println("Attn:");
-	name = keyboard.next();
-	println("Street:");
-	street = keyboard.next();
-	println("City:");
-	city = keyboard.next();
-	println("State:");
-	state = keyboard.next();
-	println("ZipCode:");
-	zip = keyboard.nextInt();
-	
-	address1 = new Address(city, street, city, state, zip);
-	
-	println("Constructing Box one");
-	println("Height:");
-	height = keyboard.nextDouble();
-	println("Width:");
-	width = keyboard.nextDouble();
-	println("Depth:");
-	depth = keyboard.nextDouble();
-	
-	dim1 = new Dimensions(width, height, depth);
-	
-	label1 = new LabelPrinter(address1, dim1);
-	
-	// Preparing Second Box
-	
-	println("Constructing Address two");
-	println("Attn:");
-	name = keyboard.next();
-	println("Street:");
-	street = keyboard.next();
-	println("City:");
-	city = keyboard.next();
-	println("State:");
-	state = keyboard.next();
-	println("ZipCode:");
-	zip = keyboard.nextInt();
-	
-	address2 = new Address(city, street, city, state, zip);
-	
-	println("Constructing Box two");
-	println("Height:");
-	height = keyboard.nextDouble();
-	println("Width:");
-	width = keyboard.nextDouble();
-	println("Depth:");
-	depth = keyboard.nextDouble();
-	
-	dim2 = new Dimensions(width, height, depth);
-	
-	label2 = new LabelPrinter(address2, dim2);
+	Address address2 = buildLabel(keyboard);
+	Dimensions dim2 = boxSize(keyboard);
+	LabelPrinter label2 = new LabelPrinter(address2, dim2);
 	
 	//Printing Labels
 	label1.printLabel();
 	label2.printLabel();
-  }
+        
+  } // end main 
   
-  
-  public static void println(String message){
+    /**
+     * Replaces System.out.println
+     * @param message accepts a String and prints it to the console
+     * with a CR return
+    */  
+    public static void println(String message){
 	System.out.println(message);
-  }
-}
+    } // end println
+    /**
+     * Replaces System.out.print
+     * @param message accepts a String and prints it to the console
+     * without a CR return
+     */
+    public static void print(String message){
+        System.out.print(message);
+    } // end print
+
+  
+  public static Address buildLabel(Scanner keyboard){	
+	println("Shipping address:");
+	print("Attn: ");
+	String name = keyboard.next();
+	print("Street: ");
+	String street = keyboard.next();
+	print("City: ");
+	String city = keyboard.next();
+	print("State: ");
+	String state = keyboard.next();
+	print("ZipCode: ");
+	int zip = keyboard.nextInt();
+        println(""); // for spacing
+        
+        Address address = new Address(name, street, city, state, zip);
+        return address;
+        } // end Address buildLabel
+  
+  public static Dimensions boxSize(Scanner keyboard){
+	println("Box dimensions:");
+	print("Height: ");
+	double height = keyboard.nextDouble();
+	print("Width: ");
+	double width = keyboard.nextDouble();
+	print("Depth: ");
+	double depth = keyboard.nextDouble();
+        println("\n"); // for spacing
+        
+        Dimensions dim = new Dimensions(width, height, depth);
+        return dim;
+        } // end Dimensions boxSize
+  
+} // end class HowDryIAM
