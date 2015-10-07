@@ -9,81 +9,35 @@ public class HowDRYIAm {
    */
   public static void main(String[] args) {
 	Scanner keyboard = new Scanner(System.in);
-	
-	// Dimensions Prep
-	double width;
-	double depth;
-	double height;
-	Dimensions dim1;
-	Dimensions dim2;
-	
-	// address Prep
-	String name;
-	String street;
-	String state;
-	String city;
-	int zip;
-	Address address1;
+        
+        //Address and Dimensions prep
+        Address address1;
 	Address address2;
-		
+	Dimensions dim1;
+	Dimensions dim2;	
 	
+        //Label prep
 	LabelPrinter label1;
 	LabelPrinter label2;
 	
-	// Preparing First Box
+        //Preparing the first Label
+        println("Constructing Address one: ");
+        address1 = addressSetup(keyboard);	
 	
-	println("Constructing Address one");
-	println("Attn:");
-	name = keyboard.next();
-	println("Street:");
-	street = keyboard.next();
-	println("City:");
-	city = keyboard.next();
-	println("State:");
-	state = keyboard.next();
-	println("ZipCode:");
-	zip = keyboard.nextInt();
+        println("Constructing Box one");	
+        dim1 = dimSetup(keyboard);
 	
-	address1 = new Address(city, street, city, state, zip);
-	
-	println("Constructing Box one");
-	println("Height:");
-	height = keyboard.nextDouble();
-	println("Width:");
-	width = keyboard.nextDouble();
-	println("Depth:");
-	depth = keyboard.nextDouble();
-	
-	dim1 = new Dimensions(width, height, depth);
-	
+        //Creating the first Label
 	label1 = new LabelPrinter(address1, dim1);
 	
-	// Preparing Second Box
+	//Preparing the second Label
+	println("Constructing Address two");	
+        address2 = addressSetup(keyboard);
 	
-	println("Constructing Address two");
-	println("Attn:");
-	name = keyboard.next();
-	println("Street:");
-	street = keyboard.next();
-	println("City:");
-	city = keyboard.next();
-	println("State:");
-	state = keyboard.next();
-	println("ZipCode:");
-	zip = keyboard.nextInt();
+        println("Constructing Box two");
+        dim2 = dimSetup(keyboard);
 	
-	address2 = new Address(city, street, city, state, zip);
-	
-	println("Constructing Box two");
-	println("Height:");
-	height = keyboard.nextDouble();
-	println("Width:");
-	width = keyboard.nextDouble();
-	println("Depth:");
-	depth = keyboard.nextDouble();
-	
-	dim2 = new Dimensions(width, height, depth);
-	
+        //Creating the second label
 	label2 = new LabelPrinter(address2, dim2);
 	
 	//Printing Labels
@@ -91,7 +45,41 @@ public class HowDRYIAm {
 	label2.printLabel();
   }
   
+  public static Address addressSetup(Scanner keyboard){
+    //initializing Address variables
+    String attn, street, city, state;
+    int zip;
   
+    println("Attn:");
+    attn = keyboard.next();
+    println("Street:");
+    street = keyboard.next();
+    println("City:");
+    city = keyboard.next();
+    println("State:");
+    state = keyboard.next();
+    println("Zip Code:");
+    zip = keyboard.nextInt();
+    println("");
+    
+    return new Address(attn, street, city, state, zip);
+}
+  
+  public static Dimensions dimSetup(Scanner keyboard){
+    //Initializing the Dimension variables
+    double height, width, depth;
+      
+    println("Height:");
+    height = keyboard.nextDouble();
+    println("Width:");
+    width = keyboard.nextDouble();
+    println("Depth:");
+    depth = keyboard.nextDouble();
+    println("");
+    
+    return new Dimensions(height, width, depth);
+  }
+   
   public static void println(String message){
 	System.out.println(message);
   }
