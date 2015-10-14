@@ -1,0 +1,98 @@
+package dry;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author zack
+ */
+public class Dry {
+        Scanner keyboard = new Scanner(System.in);  
+         int numLabels;  
+
+    public Dry() {
+        this.dimensions = new Dimensions[numLabels];
+    }
+         
+        
+         println("Please enter the number of labels you wish to print:");
+         numLabels = keyboard.nextInt();
+         
+                  
+         
+         while(numLabels < 1 || numLabels > 10) {
+             println("Please enter a number between 1 and 10:");
+             numLabels = keyboard.nextInt();
+         }
+         
+         
+         Address[] addresses = new Address[numLabels];
+         Dimensions[] dimensions;
+                  
+         //until the number of labels is reached, user enters label input
+         for(int i = 0; i < numLabels;i++){
+             inputAddress(addresses, i, keyboard);
+             sizeBox(dimensions, i, keyboard);
+         };
+         
+                 
+        
+         for(int i = 0; i < numLabels; i++) {
+             LabelPrinter label = new LabelPrinter(addresses[i], dimensions[i]);
+             label.printLabel();
+         }
+     }
+     
+
+     public static void println(String message){
+         System.out.println(message);
+     }
+     
+
+     public static void inputAddress(Address[] addresses, int i, Scanner keyboard) {
+       
+         String name;
+ 	String street;
+ 	String state;
+ 	String city;
+ 	int zip;
+         
+      
+         println("Constructing Address " + (i + 1));
+         println("Attn:");
+         name = keyboard.next();
+         println("Street:");
+         street = keyboard.next();
+         println("City:");
+         city = keyboard.next();
+         println("State:");
+         state = keyboard.next();
+         println("ZipCode:");
+         zip = keyboard.nextInt();
+         
+        
+         addresses[i] = new Address(name, street, city, state, zip);
+     }
+     
+   
+     public static void sizeBox(Dimensions[] dimensions, int i, Scanner keyboard){
+         
+         double width;
+ 	double depth;
+ 	double height;
+         
+         
+         println("Constructing Box " + (i+1));
+ 	println("Height:");
+ 	height = keyboard.nextDouble();
+ 	println("Width:");
+ 	width = keyboard.nextDouble();
+ 	println("Depth:");
+ 	depth = keyboard.nextDouble();
+         
+         
+         dimensions[i] = new Dimensions(width, height, depth);     
+     }
+ }
+    
+}
