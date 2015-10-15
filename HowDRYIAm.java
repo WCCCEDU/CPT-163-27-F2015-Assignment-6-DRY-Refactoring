@@ -11,20 +11,17 @@ public class HowDRYIAm {
    */
   public static void main(String[] args) {
 	Scanner keyboard = new Scanner(System.in);
-        Address info = newAdd(keyboard);
-        Dimensions unit = newDim(keyboard);
+        Address info = addressInformation(keyboard);
+        Dimensions unit = dimensionSpecs(keyboard);
         LabelPrinter label = new LabelPrinter(info, unit);
-        label.printLabel();
-      
-        
+        label.printLabel();//Prints information.  
   }
-	
     /**
-     * Asked the user address information.
+     * This adds input to the fields of the class Address.
      * @param keyboard
      * @return 
      */
-    public static Address newAdd(Scanner keyboard){
+    public static Address addressInformation(Scanner keyboard){
         
 	println("Attn:");
 	String name = keyboard.next();
@@ -45,14 +42,12 @@ public class HowDRYIAm {
 	Address info = new Address(city, street, city, state, zip);
         return info;
         }
-    
     /**
-     * Takes input from user on deminsons of the box .
-     * 
+     * This adds values to the class Dimensions.
      * @param keyboard
      * @return 
      */
-    public static Dimensions newDim(Scanner keyboard){
+    public static Dimensions dimensionSpecs(Scanner keyboard){
         println("Constructing Box: ");
 	
         println("Height:");
@@ -67,23 +62,10 @@ public class HowDRYIAm {
         keyboard.nextDouble();
 	
 	Dimensions unit = new Dimensions(width, height, depth);
-	return unit;
-	
-  
-        
+	return unit; 
     }
 
-
-
-  /**
-   * Provides a class for print method
-   * @param message 
-   */
   public static void println(String message){
 	System.out.println(message);
-        
-       
-        
-  }
- 
+    }
 }
