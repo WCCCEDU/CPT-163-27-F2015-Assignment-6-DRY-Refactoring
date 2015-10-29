@@ -27,7 +27,7 @@ public class HowDRYIAm {
     }   
              
     /**
-    *  Method accepts and stores address information
+    *  Method reads and constructs an address object from user info.
     * @param keyboard 
     * @return Address 
     */
@@ -50,7 +50,7 @@ public class HowDRYIAm {
   }
  
   /**
-   * Method accepts and stores dimensions of box
+   * Method constructs box with height, width and depth dimensions.
    * @param keyboard 
    * @return Dimensions
    */
