@@ -1,14 +1,19 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Gary a. Newsome
+ * CPT 163_27 Java Programming
+ * Westmoreland County Community College
+ * Paul Scarrone
+ * Assignment 6 DRY Refactoring
+ * class: Dimensions
  */
 package howdryiam;
 
 /**
- *
+ * @author garyanewsome
  * @author samuraipanzer
  */
+
+// Fields
 public class Dimensions {
   private double width = 0;
   private double height = 0;
@@ -27,7 +32,7 @@ public class Dimensions {
 	this.height = height;
 	this.units = units;
 	this.width = width;
-  }
+  } // end Dimensions
   /**
    * Constructs dimension of a 3d box using default `in` units
    * @param width
@@ -38,22 +43,22 @@ public class Dimensions {
 	this.depth = depth;
 	this.height = height;
 	this.width = width;
-  }
-  
-  public String widthWithUnits(){
-	return withUnits(this.width);
-  }
-  
-  public String heightWithUnits(){
-	return withUnits(this.height);
-  }
-  
-  public String depthWithUnits(){
-	return withUnits(this.depth);
-  }
+  } // end Dimensions
   
   private String withUnits(double measure){
 	return measure + this.units;
-  }
+  } // end withUnits
   
-}
+  public String widthWithUnits(){
+	return withUnits(this.width);
+  } // end widthWithUnits
+  
+  public String heightWithUnits(){
+	return withUnits(this.height);
+  } // end heightWithUnits
+  
+  public String depthWithUnits(){
+	return withUnits(this.depth);
+  } // end depthWithUnits
+  
+} // end class Dimensions
