@@ -22,11 +22,11 @@ public class LabelPrinter {
 	String depth = this.dimension.depthWithUnits();
 	String width = this.dimension.widthWithUnits();
 	String height = this.dimension.heightWithUnits();
-	System.out.println("Name: " + this.address.getAttn() +
-					   "Street: " + this.address.getStreet() +
-					   "City: " + this.address.getCity() +
-					   "State: " + this.address.getState() +
-					   "Zip: " + this.address.getZip() +
-					   "Dimensions: " + depth + "x" + width + "x" + height);
+	System.out.println("\nName: " + this.address.getAttn() +
+					   "\nStreet: " + this.address.getStreet() +
+					   "\nCity: " + this.address.getCity() +
+					   "\nState: " + this.address.getState() +
+					   "\nZip: " + this.address.getZip() +
+					   "\nDimensions: " + depth + "x" + width + "x" + height);
   }
 }

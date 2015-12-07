@@ -8,8 +8,6 @@ public class HowDRYIAm {
    * @param args the command line arguments
    */
   public static void main(String[] args) {
-	Scanner keyboard = new Scanner(System.in);
-	
 	// Dimensions Prep
 	double width;
 	double depth;
@@ -22,7 +20,7 @@ public class HowDRYIAm {
 	String street;
 	String state;
 	String city;
-	int zip;
+	String zip; // Switched to a string because of Zip Codes < 10000, or allow for Zip + 4 
 	Address address1;
 	Address address2;
 		
@@ -33,56 +31,20 @@ public class HowDRYIAm {
 	// Preparing First Box
 	
 	println("Constructing Address one");
-	println("Attn:");
-	name = keyboard.next();
-	println("Street:");
-	street = keyboard.next();
-	println("City:");
-	city = keyboard.next();
-	println("State:");
-	state = keyboard.next();
-	println("ZipCode:");
-	zip = keyboard.nextInt();
-	
-	address1 = new Address(city, street, city, state, zip);
+        address1 = constructAddress();
 	
 	println("Constructing Box one");
-	println("Height:");
-	height = keyboard.nextDouble();
-	println("Width:");
-	width = keyboard.nextDouble();
-	println("Depth:");
-	depth = keyboard.nextDouble();
-	
-	dim1 = new Dimensions(width, height, depth);
-	
+        dim1 = constructDimensions();
+		
 	label1 = new LabelPrinter(address1, dim1);
 	
 	// Preparing Second Box
 	
 	println("Constructing Address two");
-	println("Attn:");
-	name = keyboard.next();
-	println("Street:");
-	street = keyboard.next();
-	println("City:");
-	city = keyboard.next();
-	println("State:");
-	state = keyboard.next();
-	println("ZipCode:");
-	zip = keyboard.nextInt();
-	
-	address2 = new Address(city, street, city, state, zip);
+	address2 = constructAddress();
 	
 	println("Constructing Box two");
-	println("Height:");
-	height = keyboard.nextDouble();
-	println("Width:");
-	width = keyboard.nextDouble();
-	println("Depth:");
-	depth = keyboard.nextDouble();
-	
-	dim2 = new Dimensions(width, height, depth);
+	dim2 = constructDimensions();
 	
 	label2 = new LabelPrinter(address2, dim2);
 	
@@ -92,7 +54,39 @@ public class HowDRYIAm {
   }
   
   
-  public static void println(String message){
+  
+  
+    public static void println(String message){
 	System.out.println(message);
-  }
+    }
+
+    public static Scanner keyboardInput() {
+        return new Scanner(System.in);
+    }
+    
+    private static Address constructAddress() {
+        println("Attn:");
+	String name = keyboardInput().nextLine();
+	println("Street:");
+	String street = keyboardInput().nextLine();
+	println("City:");
+	String city = keyboardInput().nextLine();
+	println("State:");
+	String state = keyboardInput().nextLine();
+	println("ZipCode:");
+	String zip = keyboardInput().nextLine();
+	
+	return new Address(name, street, city, state, zip);
+    }
+
+    private static Dimensions constructDimensions() {
+        println("Height:");
+	double height = keyboardInput().nextDouble();
+	println("Width:");
+	double  width = keyboardInput().nextDouble();
+	println("Depth:");
+	double depth = keyboardInput().nextDouble();
+	
+	return new Dimensions(width, height, depth);
+    }
 }
